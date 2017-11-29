@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>student</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>student</name>
+    <description>Demo student project for Spring Boot</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -25,14 +25,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--<dependency>
-                <groupId>org.jboss.snowdrop</groupId>
-                <artifactId>spring-boot-1.4-bom</artifactId>
-                <version>2</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>-->
-
             <dependency>
                 <groupId>org.arquillian.cube</groupId>
                 <artifactId>arquillian-cube-bom</artifactId>
@@ -44,26 +36,12 @@
     </dependencyManagement>
 
     <dependencies>
+
         <!--Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-        </dependency>-->
-
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>-->
-
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency>-->
 
         <!--Spring Boot Test-->
         <dependency>
@@ -81,50 +59,24 @@
         </dependency>
 
         <!--Arquillian Cube Dependencies-->
-                <dependency>
-                    <groupId>org.jboss.arquillian.junit</groupId>
-                    <artifactId>arquillian-junit-standalone</artifactId>
-                    <version>1.1.13.Final</version>
-                    <scope>test</scope>
-                </dependency>
-        <!--<dependency>
+        <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <version>1.1.12.Final</version>
+            <artifactId>arquillian-junit-standalone</artifactId>
+            <version>1.1.13.Final</version>
             <scope>test</scope>
-        </dependency>-->
+        </dependency>
 
         <dependency>
             <groupId>org.arquillian.cube</groupId>
             <artifactId>arquillian-cube-openshift</artifactId>
             <scope>test</scope>
-            <!--<exclusions>
-                <exclusion>
-                    <artifactId>undertow-core</artifactId>
-                    <groupId>io.undertow</groupId>
-                </exclusion>
-            </exclusions>-->
         </dependency>
+
         <dependency>
             <groupId>org.arquillian.cube</groupId>
             <artifactId>arquillian-cube-requirement</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- Apache Tomcat Dependency required -->
-        <!--<dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-juli</artifactId>
-            <version>9.0.1</version>
-        </dependency>-->
-
-
-        <!--<dependency>
-            <groupId>io.openshift</groupId>
-            <artifactId>openshift-test-utils</artifactId>
-            <version>2</version>
-        </dependency>-->
-
     </dependencies>
 
     <build>
@@ -140,37 +92,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.4.1.RELEASE</version>
-                <configuration>
-                    <classifier>exec</classifier>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
-            <!--<plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>-->
+
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric8-maven-plugin</artifactId>
                 <version>3.5.32</version>
-                <!--<configuration>
-                    <enricher>
-                        <config>
-                            <fmp-service>
-                                <name>my-service</name>
-                                <type>NodePort</type>
-                                <multiPort>true</multiPort>
-                            </fmp-service>
-                        </config>
-                    </enricher>
-                </configuration>-->
                 <executions>
                     <execution>
                         <id>fmp</id>
@@ -181,8 +108,8 @@
                         </goals>
                     </execution>
                 </executions>
-
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
